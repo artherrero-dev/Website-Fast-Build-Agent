@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Supreme Suds Car Detailing | West Palm Beach, FL</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,900;1,300&display=swap" rel="stylesheet" />
+  <style>
+    * { font-family: 'Inter', sans-serif; }
+
+    html { scroll-behavior: smooth; }
+
+    body { background-color: #080B12; color: #f1f5f9; }
+
+    /* Nav */
+    .nav-blur {
+      background: rgba(8, 11, 18, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    /* Hero gradient */
+    .hero-section {
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(37,99,235,0.18) 0%, transparent 70%),
+        linear-gradient(180deg, #080B12 0%, #0d1117 100%);
+    }
+
+    /* Accent line */
+    .accent-line {
+      background: linear-gradient(90deg, #2563EB, #60a5fa, #2563EB);
+      background-size: 200% 100%;
+      animation: shimmer 3s linear infinite;
+    }
+    @keyframes shimmer {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
+    /* Service cards */
+    .service-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(37,99,235,0.5);
+      background: rgba(37,99,235,0.06);
+    }
+
+    /* Review cards */
+    .review-card {
+      background: rgba(255,255,255,0.035);
+      border: 1px solid rgba(255,255,255,0.07);
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+    .review-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(37,99,235,0.4);
+    }
+
+    /* Form inputs */
+    .form-input {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: #f1f5f9;
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+    .form-input:focus {
+      outline: none;
+      border-color: #2563EB;
+      background: rgba(37,99,235,0.07);
+    }
+    .form-input::placeholder { color: rgba(241,245,249,0.35); }
+
+    .form-input option { background: #0d1117; color: #f1f5f9; }
+
+    /* CTA button */
+    .btn-primary {
+      background: #2563EB;
+      transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+    }
+    .btn-primary:hover {
+      background: #1d4ed8;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 25px rgba(37,99,235,0.4);
+    }
+    .btn-primary:active { transform: translateY(0); }
+
+    /* Ghost button */
+    .btn-ghost {
+      border: 1px solid rgba(255,255,255,0.2);
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+    .btn-ghost:hover {
+      border-color: rgba(255,255,255,0.5);
+      background: rgba(255,255,255,0.06);
+    }
+
+    /* Stars */
+    .stars { color: #FBBF24; letter-spacing: 2px; }
+
+    /* Section divider */
+    .section-divider {
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+      height: 1px;
+    }
+
+    /* Success state */
+    .form-success { display: none; }
+    .form-success.visible { display: flex; }
+
+    /* Smooth scroll offset for anchor links */
+    [id] { scroll-margin-top: 80px; }
+  </style>
+</head>
+<body class="antialiased">
+
+  <!-- ======================== NAV ======================== -->
+  <nav class="nav-blur fixed top-0 left-0 right-0 z-50">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <div class="w-2 h-2 rounded-full bg-blue-500 mt-0.5"></div>
+        <span class="font-bold text-white text-lg tracking-tight">Supreme Suds</span>
+      </div>
+      <div class="hidden md:flex items-center gap-8 text-sm text-slate-400">
+        <a href="#services" class="hover:text-white transition-colors">Services</a>
+        <a href="#reviews" class="hover:text-white transition-colors">Reviews</a>
+        <a href="#booking" class="hover:text-white transition-colors">Contact</a>
+      </div>
+      <a href="tel:5614686197"
+         class="btn-primary text-white text-sm font-semibold px-5 py-2.5 rounded-lg hidden md:block">
+        (561) 468-6197
+      </a>
+      <a href="#booking" class="btn-primary text-white text-sm font-semibold px-5 py-2.5 rounded-lg md:hidden">
+        Book Now
+      </a>
+    </div>
+  </nav>
+
+  <!-- ======================== HERO ======================== -->
+  <section class="hero-section pt-32 pb-24 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2 bg-blue-600/10 border border-blue-600/25 text-blue-400 text-xs font-semibold px-4 py-2 rounded-full mb-8 tracking-wide uppercase">
+        <span class="stars text-xs">★★★★★</span>
+        5.0 · 15 Google Reviews · West Palm Beach, FL
+      </div>
+
+      <!-- Headline -->
+      <h1 class="text-5xl md:text-7xl font-black text-white leading-[1.05] tracking-tight mb-6">
+        Your Car.
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">Flawless.</span>
+      </h1>
+
+      <p class="text-lg md:text-xl text-slate-400 leading-relaxed max-w-2xl mx-auto mb-10">
+        Professional mobile car detailing that comes to <em class="text-slate-300 not-italic">you</em> — at your home, office, or driveway. Open 24 hours. No rush jobs, ever.
+      </p>
+
+      <!-- CTAs -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#booking" class="btn-primary text-white font-bold px-8 py-4 rounded-xl text-base">
+          Book a Detail
+        </a>
+        <a href="tel:5614686197" class="btn-ghost text-white font-semibold px-8 py-4 rounded-xl text-base">
+          Call (561) 468-6197
+        </a>
+      </div>
+
+      <!-- Accent line -->
+      <div class="accent-line h-px max-w-xs mx-auto mt-20 rounded-full opacity-60"></div>
+    </div>
+  </section>
+
+  <!-- ======================== STATS STRIP ======================== -->
+  <div class="border-y border-white/5 bg-white/[0.02] py-10 px-6">
+    <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      <div>
+        <div class="text-3xl font-black text-white mb-1">5.0</div>
+        <div class="text-slate-500 text-sm">Google Rating</div>
+      </div>
+      <div>
+        <div class="text-3xl font-black text-white mb-1">15+</div>
+        <div class="text-slate-500 text-sm">Verified Reviews</div>
+      </div>
+      <div>
+        <div class="text-3xl font-black text-white mb-1">24/7</div>
+        <div class="text-slate-500 text-sm">Available</div>
+      </div>
+      <div>
+        <div class="text-3xl font-black text-white mb-1">100%</div>
+        <div class="text-slate-500 text-sm">Mobile Service</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================== SERVICES ======================== -->
+  <section id="services" class="py-24 px-6">
+    <div class="max-w-6xl mx-auto">
+
+      <div class="mb-14">
+        <p class="text-blue-500 text-sm font-semibold uppercase tracking-widest mb-3">What We Do</p>
+        <h2 class="text-4xl md:text-5xl font-black text-white tracking-tight">Every Detail. Done Right.</h2>
+        <p class="text-slate-400 mt-4 text-lg max-w-xl">We treat every vehicle like it's our own. No shortcuts, no rush — just results that speak for themselves.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+        <!-- Exterior Detail -->
+        <div class="service-card rounded-2xl p-7">
+          <div class="text-3xl mb-4">🚗</div>
+          <h3 class="text-white font-bold text-lg mb-2">Exterior Detail</h3>
+          <p class="text-slate-400 text-sm leading-relaxed mb-4">Full hand wash, clay bar treatment, tire dressing, wheel cleaning, window polish, and paint protection. Your exterior restored to its original brilliance.</p>
+          <div class="text-blue-400 font-semibold text-sm">Starting at $99</div>
+        </div>
+
+        <!-- Interior Detail -->
+        <div class="service-card rounded-2xl p-7">
+          <div class="text-3xl mb-4">✨</div>
+          <h3 class="text-white font-bold text-lg mb-2">Interior Detail</h3>
+          <p class="text-slate-400 text-sm leading-relaxed mb-4">Deep vacuum, steam cleaning of seats and carpets, dashboard and console wipe-down, door jambs, air vents, and odor elimination. Fresh inside out.</p>
+          <div class="text-blue-400 font-semibold text-sm">Starting at $99</div>
+        </div>
+
+        <!-- Full Detail -->
+        <div class="service-card rounded-2xl p-7 lg:col-span-1 md:col-span-2 lg:col-auto">
+          <div class="text-3xl mb-4">💎</div>
+          <h3 class="text-white font-bold text-lg mb-2">Full Detail</h3>
+          <p class="text-slate-400 text-sm leading-relaxed mb-4">The complete package — everything in our Exterior and Interior details combined. Recommended for vehicles that haven't been detailed in 6+ months.</p>
+          <div class="text-blue-400 font-semibold text-sm">Starting at $189</div>
+        </div>
+
+        <!-- Paint Correction -->
+        <div class="service-card rounded-2xl p-7">
+          <div class="text-3xl mb-4">🔧</div>
+          <h3 class="text-white font-bold text-lg mb-2">Paint Correction</h3>
+          <p class="text-slate-400 text-sm leading-relaxed mb-4">Eliminates swirl marks, light scratches, water spots, and oxidation. Restores depth and gloss to your paint like the day it left the lot.</p>
+          <div class="text-blue-400 font-semibold text-sm">Starting at $249</div>
+        </div>
+
+        <!-- Ceramic Coating -->
+        <div class="service-card rounded-2xl p-7">
+          <div class="text-3xl mb-4">🛡️</div>
+          <h3 class="text-white font-bold text-lg mb-2">Ceramic Coating</h3>
+          <p class="text-slate-400 text-sm leading-relaxed mb-4">Long-lasting nano-ceramic protection that repels water, UV, dirt, and minor scratches. A serious upgrade for drivers who care about their paint long-term.</p>
+          <div class="text-blue-400 font-semibold text-sm">Starting at $399</div>
+        </div>
+
+        <!-- Mobile Service Callout -->
+        <div class="service-card rounded-2xl p-7 bg-blue-600/[0.08] border-blue-600/25">
+          <div class="text-3xl mb-4">📍</div>
+          <h3 class="text-white font-bold text-lg mb-2">We Come to You</h3>
+          <p class="text-slate-400 text-sm leading-relaxed mb-4">100% mobile service anywhere in West Palm Beach and surrounding areas. We bring all the equipment — you don't move a muscle. Available 24 hours.</p>
+          <div class="text-blue-400 font-semibold text-sm">Free Mobile Visit</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider max-w-5xl mx-auto"></div>
+
+  <!-- ======================== REVIEWS ======================== -->
+  <section id="reviews" class="py-24 px-6">
+    <div class="max-w-6xl mx-auto">
+
+      <div class="mb-14">
+        <p class="text-blue-500 text-sm font-semibold uppercase tracking-widest mb-3">What Clients Say</p>
+        <div class="flex items-end gap-4 flex-wrap">
+          <h2 class="text-4xl md:text-5xl font-black text-white tracking-tight">5 Stars. Every Time.</h2>
+          <div class="flex items-center gap-2 mb-1">
+            <span class="stars text-2xl">★★★★★</span>
+            <span class="text-slate-400 text-sm">15 Google reviews</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+        <!-- Review: Leroy Crawford -->
+        <div class="review-card rounded-2xl p-7">
+          <div class="stars text-sm mb-4">★★★★★</div>
+          <p class="text-slate-300 text-sm leading-relaxed mb-6">"This is the cleanest my car has ever been. I noticed things were cleaned that I wouldn't have even thought to check. Extremely thorough and professional."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-blue-600/30 flex items-center justify-center text-blue-400 font-bold text-sm flex-shrink-0">LC</div>
+            <div>
+              <div class="text-white font-semibold text-sm">Leroy Crawford</div>
+              <div class="text-slate-500 text-xs">3 months ago · Google</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review: Quincey Jenkins -->
+        <div class="review-card rounded-2xl p-7">
+          <div class="stars text-sm mb-4">★★★★★</div>
+          <p class="text-slate-300 text-sm leading-relaxed mb-6">"No rushed job here. They took their time and treated my car like it was their own. I've already recommended them to friends and family."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-blue-600/30 flex items-center justify-center text-blue-400 font-bold text-sm flex-shrink-0">QJ</div>
+            <div>
+              <div class="text-white font-semibold text-sm">Quincey Jenkins</div>
+              <div class="text-slate-500 text-xs">3 months ago · Google</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review: Karen Buick -->
+        <div class="review-card rounded-2xl p-7">
+          <div class="stars text-sm mb-4">★★★★★</div>
+          <p class="text-slate-300 text-sm leading-relaxed mb-6">"The convenience was unbelievable. They cleaned my car right in my driveway while I worked from home. Absolutely amazing experience."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-blue-600/30 flex items-center justify-center text-blue-400 font-bold text-sm flex-shrink-0">KB</div>
+            <div>
+              <div class="text-white font-semibold text-sm">Karen Buick</div>
+              <div class="text-slate-500 text-xs">4 months ago · Google</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review: Andino Cruz -->
+        <div class="review-card rounded-2xl p-7">
+          <div class="stars text-sm mb-4">★★★★★</div>
+          <p class="text-slate-300 text-sm leading-relaxed mb-6">"Super professional from start to finish. Communication was clear, arrival was on time, and the final result exceeded expectations. My paint hasn't looked this good since I bought the car."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-blue-600/30 flex items-center justify-center text-blue-400 font-bold text-sm flex-shrink-0">AC</div>
+            <div>
+              <div class="text-white font-semibold text-sm">Andino Cruz</div>
+              <div class="text-slate-500 text-xs">3 months ago · Google</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review: Samson Williams -->
+        <div class="review-card rounded-2xl p-7">
+          <div class="stars text-sm mb-4">★★★★★</div>
+          <p class="text-slate-300 text-sm leading-relaxed mb-6">"I had stains in my seats that I thought were permanent. They came out completely gone. The interior looks fresh without any strong chemical smell."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-blue-600/30 flex items-center justify-center text-blue-400 font-bold text-sm flex-shrink-0">SW</div>
+            <div>
+              <div class="text-white font-semibold text-sm">Samson Williams</div>
+              <div class="text-slate-500 text-xs">3 months ago · Google</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA card -->
+        <div class="rounded-2xl p-7 bg-blue-600 flex flex-col justify-between">
+          <div>
+            <div class="stars text-sm mb-3">★★★★★</div>
+            <p class="text-white font-bold text-lg leading-snug mb-2">5.0 stars across 15 Google reviews</p>
+            <p class="text-blue-200 text-sm">Join hundreds of satisfied clients across West Palm Beach.</p>
+          </div>
+          <a href="#booking" class="mt-8 bg-white text-blue-700 font-bold text-sm px-5 py-3 rounded-xl text-center hover:bg-blue-50 transition-colors">
+            Book Your Detail
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider max-w-5xl mx-auto"></div>
+
+  <!-- ======================== BOOKING FORM ======================== -->
+  <section id="booking" class="py-24 px-6">
+    <div class="max-w-2xl mx-auto">
+
+      <div class="mb-12 text-center">
+        <p class="text-blue-500 text-sm font-semibold uppercase tracking-widest mb-3">Get Started</p>
+        <h2 class="text-4xl md:text-5xl font-black text-white tracking-tight mb-4">Book Your Detail</h2>
+        <p class="text-slate-400 text-lg">Fill out the form below and we'll confirm your appointment within 24 hours. Or call us directly at <a href="tel:5614686197" class="text-blue-400 hover:text-blue-300 transition-colors">(561) 468-6197</a>.</p>
+      </div>
+
+      <form id="bookingForm" class="space-y-5" onsubmit="handleSubmit(event)" novalidate>
+
+        <!-- Name row -->
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-slate-400 text-xs font-semibold uppercase tracking-wider mb-2">First Name</label>
+            <input type="text" name="firstName" required placeholder="Jane"
+              class="form-input w-full px-4 py-3.5 rounded-xl text-sm" />
+          </div>
+          <div>
+            <label class="block text-slate-400 text-xs font-semibold uppercase tracking-wider mb-2">Last Name</label>
+            <input type="text" name="lastName" required placeholder="Smith"
+              class="form-input w-full px-4 py-3.5 rounded-xl text-sm" />
+          </div>
+        </div>
+
+        <!-- Phone & Email -->
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-slate-400 text-xs font-semibold uppercase tracking-wider mb-2">Phone</label>
+            <input type="tel" name="phone" required placeholder="(561) 000-0000"
+              class="form-input w-full px-4 py-3.5 rounded-xl text-sm" />
+          </div>
+          <div>
+            <label class="block text-slate-400 text-xs font-semibold uppercase tracking-wider mb-2">Email</label>
+            <input type="email" name="email" placeholder="jane@email.com"
+              class="form-input w-full px-4 py-3.5 rounded-xl text-sm" />
+          </div>
+        </div>
+
+        <!-- Service -->
+        <div>
+          <label class="block text-slate-400 text-xs font-semibold uppercase tracking-wider mb-2">Service</label>
+          <select name="service" required class="form-input w-full px-4 py-3.5 rounded-xl text-sm appearance-none cursor-pointer">
+            <option value="" disabled selected>Select a service…</option>
+            <option value="exterior">Exterior Detail — from $99</option>
+            <option value="interior">Interior Detail — from $99</option>
+            <option value="full">Full Detail — from $189</option>
+            <option value="paint-correction">Paint Correction — from $249</option>
+            <option value="ceramic">Ceramic Coating — from $399</option>
+            <option value="unsure">Not sure — help me choose</option>
+          </select>
+        </div>
+
+        <!-- Vehicle -->
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-slate-400 text-xs font-semibold uppercase tracking-wider mb-2">Vehicle</label>
+            <input type="text" name="vehicle" placeholder="e.g. 2021 Toyota Camry"
+              class="form-input w-full px-4 py-3.5 rounded-xl text-sm" />
+          </div>
+          <div>
+            <label class="block text-slate-400 text-xs font-semibold uppercase tracking-wider mb-2">Preferred Date</label>
+            <input type="date" name="date"
+              class="form-input w-full px-4 py-3.5 rounded-xl text-sm" />
+          </div>
+        </div>
+
+        <!-- Address -->
+        <div>
+          <label class="block text-slate-400 text-xs font-semibold uppercase tracking-wider mb-2">Service Address <span class="text-slate-600 normal-case font-normal">(we come to you)</span></label>
+          <input type="text" name="address" placeholder="123 Main St, West Palm Beach, FL"
+            class="form-input w-full px-4 py-3.5 rounded-xl text-sm" />
+        </div>
+
+        <!-- Notes -->
+        <div>
+          <label class="block text-slate-400 text-xs font-semibold uppercase tracking-wider mb-2">Notes <span class="text-slate-600 normal-case font-normal">(optional)</span></label>
+          <textarea name="notes" rows="3" placeholder="Anything we should know? Stains, pet hair, specific concerns…"
+            class="form-input w-full px-4 py-3.5 rounded-xl text-sm resize-none"></textarea>
+        </div>
+
+        <!-- Submit -->
+        <button type="submit"
+          class="btn-primary w-full text-white font-bold py-4 rounded-xl text-base">
+          Request Booking
+        </button>
+
+        <p class="text-slate-600 text-xs text-center">We'll reach out within 24 hours to confirm your appointment.</p>
+      </form>
+
+      <!-- Success State -->
+      <div id="formSuccess" class="form-success flex-col items-center text-center py-12">
+        <div class="w-16 h-16 bg-green-500/10 border border-green-500/25 rounded-full flex items-center justify-center mb-5">
+          <svg class="w-8 h-8 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+          </svg>
+        </div>
+        <h3 class="text-white text-2xl font-bold mb-2">You're on the list!</h3>
+        <p class="text-slate-400">We'll call or text you within 24 hours to confirm your detail. Talk soon.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======================== FOOTER ======================== -->
+  <footer class="border-t border-white/5 py-12 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid md:grid-cols-3 gap-10 mb-10">
+        <div>
+          <div class="flex items-center gap-2 mb-4">
+            <div class="w-2 h-2 rounded-full bg-blue-500"></div>
+            <span class="font-bold text-white text-lg tracking-tight">Supreme Suds</span>
+          </div>
+          <p class="text-slate-500 text-sm leading-relaxed">Professional mobile car detailing in West Palm Beach, FL. We come to you — at your home, office, or anywhere in between.</p>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold text-sm mb-4">Contact</h4>
+          <div class="space-y-2 text-slate-500 text-sm">
+            <div><a href="tel:5614686197" class="hover:text-blue-400 transition-colors">(561) 468-6197</a></div>
+            <div>504 24th St</div>
+            <div>West Palm Beach, FL 33407</div>
+            <div class="text-green-400/80 font-medium">Open 24 Hours</div>
+          </div>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold text-sm mb-4">Services</h4>
+          <div class="space-y-2 text-slate-500 text-sm">
+            <div>Exterior Detail</div>
+            <div>Interior Detail</div>
+            <div>Full Detail</div>
+            <div>Paint Correction</div>
+            <div>Ceramic Coating</div>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-white/5 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="text-slate-600 text-xs">© 2025 Supreme Suds Car Detailing. All rights reserved.</p>
+        <div class="flex items-center gap-1">
+          <span class="stars text-xs">★★★★★</span>
+          <span class="text-slate-600 text-xs ml-1">5.0 on Google</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function handleSubmit(e) {
+      e.preventDefault();
+      const form = document.getElementById('bookingForm');
+      const success = document.getElementById('formSuccess');
+      form.style.display = 'none';
+      success.classList.add('visible');
+    }
+
+    // Set min date to today on the date input
+    const dateInput = document.querySelector('input[type="date"]');
+    if (dateInput) {
+      const today = new Date().toISOString().split('T')[0];
+      dateInput.min = today;
+    }
+  </script>
+
+</body>
+</html>
